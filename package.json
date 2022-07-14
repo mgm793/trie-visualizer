@@ -1,0 +1,24 @@
+{
+  "name": "trie-visualizer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "esbuild --bundle src/index.js --outfile=public/main.js --servedir=public",
+    "build": "esbuild src/index.js --bundle --outfile=public/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mgm793/trie-visualizer.git"
+  },
+  "author": "Marc Garcia i Mullon (@mgm793)",
+  "license": "GNU",
+  "bugs": {
+    "url": "https://github.com/mgm793/trie-visualizer/issues"
+  },
+  "homepage": "https://github.com/mgm793/trie-visualizer#readme",
+  "devDependencies": {
+    "esbuild": "^0.14.49"
+  }
+}
