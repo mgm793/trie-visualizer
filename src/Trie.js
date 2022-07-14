@@ -41,16 +41,31 @@ export class Trie {
 
     getTrieAsMap() {
         let map = {};
-        this.traverse(this.root, map);
+        this.#traverseToMap(this.root, map);
         return map;
-    } 
+    }
 
-    traverse(node, map) {
+    getTrieAsMatrix(){
+        let matrix = [];
+        this.#traverseToMatrix(this.root, matrix, 0);
+        return matrix;
+    }
+
+    #traverseToMatrix(node, matrix, row){
+        matrix[row] ??= [];
+        matrix[row].push({
+            isFinishedWord: node.isFinishedWord,
+            value: node.value,
+        });
+        node.children.forEach(child => this.#traverseToMatrix(child, matrix, row + 1));
+    }
+
+    #traverseToMap(node, map) {
         map[node.value] = {
             isFinishedWord: node.isFinishedWord,
             value: node.value,
         };
-        node.children.forEach(child => this.traverse(child, map[node.value]));
+        node.children.forEach(child => this.#traverseToMap(child, map[node.value]));
     }
     
 }

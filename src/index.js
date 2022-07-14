@@ -1,7 +1,11 @@
 import { Trie } from './Trie';
+import { Visualizer } from './Visualizer';
+
 (() => {
     const trie = new Trie();
     trie.insert('hello');
     trie.insert('hola');
-    document.getElementById('code').innerHTML = JSON.stringify(trie.getTrieAsMap(), null, 4);
+
+    const visualizer = new Visualizer({parentContainerId: 'code', trie});
+    visualizer.render();
 })()
